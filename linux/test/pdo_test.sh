@@ -25,6 +25,14 @@ function show_usage ()
   echo ""
 }
 
+function build ()
+{
+  cd $SOURCE_DIR
+  phpize
+  ./configure
+  make
+}
+
 echo "SOURCE DIR $SOURCE_DIR"
 
 while getopts "h" opt; do
@@ -38,15 +46,21 @@ if [ "x$GIT_FILE" = "x" ]; then
     exit 0
 fi
 
+rm -rf $SHELL_DIR/$MODULE_NAME
+
 git clone git@github.com:CUBRID/$MODULE_NAME.git --recursive
+cd $SOURCE_DIR
 
 if [ ! -z $ARG ]; then
   echo "[CHECK] input commit id : $ARG"
-  cd $SOURCE_DIR
   git reset --hard $ARG
   git submodule update
-  cd $SHELL_DIR
+else
+  echo "Get cubrid-cci"
+  rm -rf cci-src
+  git clone git@github.com:CUBRID/cubrid-cci.git cci-src  
 fi
+
 
 if [ -f $VERSION_FILE ]; then
   echo "[CHECK] version file : $VERSION_FILE"
@@ -54,13 +68,6 @@ if [ -f $VERSION_FILE ]; then
   VERSION=$(echo $END_LINE | cut -c 29-39)
 fi
 
-echo "Python Driver Version is $VERSION"
+echo "PDO Driver Version is $VERSION"
 
-rm -rf $SOURCE_DIR/.git
-rm -rf $SOURCE_DIR/cci-src/.git
-
-tar zcf CUBRID-PDO-$VERSION.tar.gz $MODULE_NAME
-rm -rf $SOURCE_DIR
-
-echo "VERION $VERSION Completed"
-
+build
