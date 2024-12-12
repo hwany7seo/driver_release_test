@@ -25,7 +25,7 @@ function show_usage ()
   echo ""
 }
 
-function test1-python2() {
+function test1_python2() {
   cd $SOURCE_DIR/tests
   python test_CUBRIDdb.py
   python test_cubrid.py
@@ -36,7 +36,7 @@ function test1-python2() {
   cat python2_result/test_cubrid.result
 }
 
-function test1-python3() {
+function test1_python3() {
   cd $SOURCE_DIR/tests
   python3 test_CUBRIDdb.py
   python3 test_cubrid.py
@@ -108,8 +108,8 @@ if [ "x$GIT_FILE" = "x" ]; then
     exit 0
 fi
 
-#get_source
-#build
-test1-python2
-test1-python3
+get_source
+build
+test1_python2
+test1_python3
 test2
