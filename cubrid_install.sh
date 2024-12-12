@@ -1,7 +1,7 @@
 #!/bin/bash
 SHELL_DIR="$( cd "$( dirname "$0" )" && pwd -P )"
 URL="http://192.168.1.91:8080/REPO_ROOT/store_01/11.4.0.1495-f0ce2d2/drop/CUBRID-11.4.0.1495-f0ce2d2-Linux.x86_64.sh"
-MORE=-99999999
+export MORE=-99999999
 
 
 if [ "$1" = "11.3" ]; then
@@ -15,8 +15,8 @@ URL=https://ftp.cubrid.org/CUBRID_Engine/10.2.15/CUBRID-10.2.15.8978-94eab5d-Lin
 elif [ "$1" = "10.1" ]; then
 URL=https://ftp.cubrid.org/CUBRID_Engine/10.1.8/CUBRID-10.1.8.7823-fa7db6b-Linux.x86_64.sh
 fi
-INSATLLED_FILE=$(echo "$URL" | rev | cut -d '/' -f 1 | rev)
-INSATLLED_PATH=$(echo "$INSATLLED_FILE" | rev | cut -d '.' -f 1 | rev)
+INSATLLED_FILE=$(basename "$URL")
+INSATLLED_PATH=$(basename "$URL" ".sh")
 echo "INSATLLED_PATH : $INSATLLED_FILE"
 echo "INSATLLED_PATH : $INSATLLED_PATH"
 
@@ -31,13 +31,13 @@ if [ -d ~/$INSATLLED_PATH ]; then
   fi
 fi
 
-if [ -e ~/$INSATLLED_PATH".sh" ]; then
-rm ~/$INSATLLED_PATH".sh" 
+if [ -e ~/$INSATLLED_FILE ]; then
+rm ~/$INSATLLED_FILE 
 fi
 
 wget "${URL}"
-yes | sh $INSATLLED_PATH".sh"
-. ~/.cubrid.sh
+yes | sh ~/$INSATLLED_FILE
+source ~/.cubrid.sh
 echo $CUBRID
 
 cd $CUBRID
