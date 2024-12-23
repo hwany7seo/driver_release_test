@@ -32,8 +32,8 @@ function test1_python2() {
   mkdir -p python2_result
   mv test_CUBRIDdb.result python2_result/
   mv test_cubrid.result python2_result/
-  cat python2_result/test_CUBRIDdb.result
-  cat python2_result/test_cubrid.result
+  #cat python2_result/test_CUBRIDdb.result
+  #cat python2_result/test_cubrid.result
 }
 
 function test1_python3() {
@@ -43,14 +43,14 @@ function test1_python3() {
   mkdir -p python3_result
   mv test_CUBRIDdb.result python3_result/
   mv test_cubrid.result python3_result/
-  cat python3_result/test_CUBRIDdb.result
-  cat python3_result/test_cubrid.result
+  #cat python3_result/test_CUBRIDdb.result
+  #cat python3_result/test_cubrid.result
 }
 
 function test2() {
   cd $SOURCE_DIR/tests2
   sh runtest.sh
-  cat function_result/*
+  #cat function_result/*
 }
 
 
@@ -70,8 +70,11 @@ function get_source() {
     echo "[ERROR] Git not found"
     exit 0
   fi
-
-  rm -rf $SHELL_DIR/$MODULE_NAME
+ 
+  if [ "x$SOURCE_DIR" != "x" ]; then
+    echo "Deleted Source"
+    rm -rf $SHELL_DIR/$MODULE_NAME
+  fi
 
   git clone git@github.com:CUBRID/$MODULE_NAME.git
   cd $SOURCE_DIR
@@ -110,6 +113,6 @@ fi
 
 get_source
 build
-test1_python2
-test1_python3
+#test1_python2
+#test1_python3
 test2

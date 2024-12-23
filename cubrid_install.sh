@@ -43,7 +43,7 @@ cd ~
 wget "${URL}"
 yes | sh ~/$INSATLLED_FILE
 source ~/.cubrid.sh
-echo "ccccccccccccc $CUBRID"
+echo "NEW INSTALLED CUBRID : $CUBRID"
 export CUBRID=$CUBRID
 
 cd $CUBRID
