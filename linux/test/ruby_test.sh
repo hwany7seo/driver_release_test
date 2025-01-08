@@ -2,13 +2,13 @@
 
 ARG=$@
 SHELL_DIR="$( cd "$( dirname "$0" )" && pwd -P )"
-MODULE_NAME=node-cubrid
+MODULE_NAME=cubrid-ruby
 SOURCE_DIR=$SHELL_DIR/$MODULE_NAME
 GIT_FILE=$(which git)
 
 function information() {
     echo ""
-    echo "CUBRID node.js driver test enviroment setting shell"
+    echo "CUBRID ruby driver test enviroment setting shell"
     echo " OPTIONS "
     echo " -h       : show help message"
     echo " -t       : run test"
@@ -18,7 +18,7 @@ function information() {
 function run_test() {
     git clone git@github.com:CUBRID/$MODULE_NAME.git
     cd ./$MODULE_NAME
-    npm test
+    make test
 }
 
 echo "[INFO] source dir = $SOURCE_DIR"
