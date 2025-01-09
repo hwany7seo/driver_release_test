@@ -8,8 +8,8 @@ set DEVEL_PACK_PATH=%SHELL_PATH%lib\devel-pack
 set SOURCE_DIR=%SHELL_PATH%
 set GIT_PATH=C:\Program Files\Git\bin\git.exe
 
-::set GIT_CLONE=git@github.com:hwany7seo/cubrid-php.git -b test_973 --recursive
-set GIT_CLONE=git@github.com:CUBRID/cubrid-php.git --recursive
+set GIT_CLONE=git@github.com:hwany7seo/cubrid-php.git -b 11_4_test --recursive
+::set GIT_CLONE=git@github.com:CUBRID/cubrid-php.git --recursive
 set SOURCE_DIR_PHP_56=%SOURCE_DIR%cubrid-php-5-6
 set SOURCE_DIR_PHP_71=%SOURCE_DIR%cubrid-php-7-1
 set SOURCE_DIR_PHP_74=%SOURCE_DIR%cubrid-php-7-4

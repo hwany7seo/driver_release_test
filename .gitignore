@@ -1,2 +1,5 @@
 linux/python/cubrid-python
-
+win/pdo/lib/**/pdo_cubrid.dll
+win/pdo/result*
+win/php/result*
+win/pdo/cubrid-pdo*

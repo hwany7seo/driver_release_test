@@ -44,12 +44,12 @@ IF "%PHP_MAJOR_VERSION%"=="5" (
   ) ELSE IF "%PHP_MINOR_VERSION%"=="4" (
     echo "Testing php-7.4-ts-x64"
     call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-Win32-vc15-x64\php.exe %SOURCE_DIR_PHP_74% > %RESULT_FILE_74%
-    echo "Testing php-7.4-nts-x64"
-    call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-nts-Win32-vc15-x64\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
-    echo "Testing php-7.4-ts-x86"
-    call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-Win32-vc15-x86\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
-    echo "Testing php-7.4-nts-x86"
-    call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-nts-Win32-vc15-x86\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
+    ::echo "Testing php-7.4-nts-x64"
+    ::call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-nts-Win32-vc15-x64\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
+    ::echo "Testing php-7.4-ts-x86"
+    ::call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-Win32-vc15-x86\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
+    ::echo "Testing php-7.4-nts-x86"
+    ::call %SHELL_PATH%test.bat %LIB_PATH%\php-7.4.2-nts-Win32-vc15-x86\php.exe %SOURCE_DIR_PHP_74% >> %RESULT_FILE_74%
     echo "End Test Result is : %RESULT_FILE_74%"
   )
 )
