@@ -6,35 +6,13 @@ MODULE_NAME=cubrid-ruby
 SOURCE_DIR=$SHELL_DIR/$MODULE_NAME
 GIT_FILE=$(which git)
 
-function information() {
-    echo ""
-    echo "CUBRID ruby driver test enviroment setting shell"
-    echo " OPTIONS "
-    echo " -h       : show help message"
-    echo " -t       : run test"
-    echo ""
-}
-
-function run_test() {
-    git clone git@github.com:CUBRID/$MODULE_NAME.git
-    cd ./$MODULE_NAME
-    make test
-}
-
 echo "[INFO] source dir = $SOURCE_DIR"
 
-case "$1" in
-    -h)
-        information
-        exit 0
-        ;;
-    -t)
-        run_test
-        ;;
-    *)
-        echo "Invalid option: $1"
-        information
-        exit 1
-        ;;
-esac
+git clone git@github.com:CUBRID/$MODULE_NAME.git
+cd ./$MODULE_NAME
 
+ruby ext/extconf.rb
+make
+gem build cubrid.gemspec
+gem install cubrid-11.1.1.gem
+ruby test/test_cubrid.rb
