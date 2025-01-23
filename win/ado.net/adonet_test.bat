@@ -11,4 +11,8 @@ call get_cci_driver.bat
 
 cd ..
 
-call test.bat
+call build.bat
+
+test.bat -p
+
+cd %SHALL_PATH%

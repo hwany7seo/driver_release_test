@@ -14,6 +14,6 @@ cd ..
 call build_2017.bat
 call build_unicode_2017.bat
 
-call test.bat
+test.bat -p
 
 cd %SHELL_PATH%
