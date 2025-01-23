@@ -12,4 +12,5 @@ git clone git@github.com:CUBRID/$MODULE_NAME.git
 cd ./$MODULE_NAME
 
 npm install
-npm test
+
+npm test | tee ../../node_test_result.result

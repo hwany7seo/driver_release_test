@@ -9,7 +9,8 @@ GIT_FILE=$(which git)
 echo "[INFO] source dir = $SOURCE_DIR"
 
 git clone git@github.com:CUBRID/$MODULE_NAME.git --recursive
-cd $SOURCE_DIR
+cd ./$MODULE_NAME
 sh build_cci.sh
-scl enable devtoolset-8 bash 'perl Makefile.PL'
-make test
+scl enable devtoolset-8 'perl Makefile.PL'
+
+make test | tee ../../perl_test_result.result

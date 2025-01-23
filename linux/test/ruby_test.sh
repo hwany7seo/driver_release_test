@@ -15,4 +15,5 @@ ruby ext/extconf.rb
 make
 gem build cubrid.gemspec
 gem install cubrid-11.1.0.gem
-ruby tests/test_cubrid.rb
+
+ruby tests/test_cubrid.rb | tee ../../ruby_test_result.result
