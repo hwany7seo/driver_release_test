@@ -3,3 +3,7 @@ win/pdo/lib/**/pdo_cubrid.dll
 win/pdo/result*
 win/php/result*
 win/pdo/cubrid-pdo*
+linux/php-pdo/*.tar.gz
+linux/php-pdo/cubrid-pdo*/
+linux/php-pdo/cubrid-php*/
+linux/php-pdo/*.txt

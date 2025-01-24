@@ -1,7 +1,6 @@
 #!/bin/bash
 SHELL_DIR="$( cd "$( dirname "$0" )" && pwd -P )"
 URL="http://192.168.1.91:8080/REPO_ROOT/store_01/11.4.0.1568-3f492f9/drop/CUBRID-11.4.0.1568-3f492f9-Linux.x86_64.sh"
-::URL="http://192.168.1.91:8080/REPO_ROOT/store_01/11.4.0.1495-f0ce2d2/drop/CUBRID-11.4.0.1495-f0ce2d2-Linux.x86_64.sh"
 export MORE=-99999999
 
 if [ "$1" = "11.3" ]; then

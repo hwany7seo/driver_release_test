@@ -3,19 +3,18 @@
 SHELL_DIR=$(dirname $(readlink -f $0))
 CURRENT_DIR=$(pwd)
 
-function run_pdo_test() {
+function run_php_test() {
     local version=$1
-    echo "=== Running PDO test for PHP $version ==="
-    ./run.sh -d cubrid-pdo -v $version
+    echo "=== Running PHP test for PHP $version ==="
+    ./run.sh -d cubrid-php -v $version
 }
 
 function show_results() {
     echo -e "\n=== Test Results ==="
     echo "Result files generated:"
-    for result in $SHELL_DIR/*result*pdo*.txt; do
+    for result in $SHELL_DIR/*result*php*.txt; do
         if [ -f "$result" ]; then
             echo -e "\n- $(basename $result):"
-            # 첫 번째 ===== 블록과 마지막 ===== 블록을 출력
             awk '
                 /^={20,}/{
                     if (count == 0) {
@@ -35,10 +34,10 @@ function show_results() {
 }
 
 function run_all_tests() {
-    echo "Starting all PDO tests..."
-    run_pdo_test "56"
-    run_pdo_test "71"
-    run_pdo_test "74"
+    echo "Starting all PHP tests..."
+    run_php_test "56"
+    run_php_test "71"
+    run_php_test "74"
 }
 
 # 명령행 인자 처리
@@ -55,8 +54,8 @@ case "$1" in
         run_all_tests
         ;;
     "56"|"71"|"74")
-        echo "run_pdo_test $1"
-        run_pdo_test "$1"
+        echo "run_php_test $1"
+        run_php_test "$1"
         ;;
     *)
         echo "Error: Invalid version. Use 56, 71, 74 or all"
