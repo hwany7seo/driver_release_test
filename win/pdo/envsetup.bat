@@ -3,12 +3,11 @@
 set ISDOWNLOAD=%3
 
 set SHELL_PATH=%~dp0
-set LIB_PATH=%SHELL_PATH%lib
-set DEVEL_PACK_PATH=%SHELL_PATH%lib\devel-pack
+set LIB_PATH=%PDO_LIB%
+set DEVEL_PACK_PATH=%PDO_LIB%\devel-pack
 set SOURCE_DIR=%SHELL_PATH%
 set GIT_PATH=C:\Program Files\Git\bin\git.exe
 
-::set GIT_CLONE=git@github.com:hwany7seo/cubrid-pdo.git -b multi_build --recursive
 set GIT_CLONE=git@github.com:CUBRID/cubrid-pdo.git --recursive
 set SOURCE_DIR_PHP_56=%SOURCE_DIR%cubrid-pdo-5-6
 set SOURCE_DIR_PHP_71=%SOURCE_DIR%cubrid-pdo-7-1
@@ -17,6 +16,10 @@ set SOURCE_DIR_PHP_74=%SOURCE_DIR%cubrid-pdo-7-4
 set RESULT=true
 
 echo "ISDOWNLOAD : %ISDOWNLOAD%"
+
+if "%ISDOWNLOAD%" == "" (
+  echo "Source is not download"
+)
 
 IF "%1"=="" (
 	echo "usage: %0 PDO_VERSION <ex: php-5.6.31 | php-7.1.8 | php-7.4.2> Driver"
