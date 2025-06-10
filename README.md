@@ -83,6 +83,10 @@ adonet_test.bat
 ```
 
 #### ODBC
+> [!NOTE]
+> odbc must be registered with odbc datasource before testing
+> https://www.cubrid.org/manual/en/11.4/api/odbc.html#id1
+
 ```bat
 cd win\odbc
 odbc_test.bat
