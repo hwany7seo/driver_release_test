@@ -84,10 +84,10 @@ adonet_test.bat
 
 #### ODBC
 > [!NOTE]
-> odbc must be registered with odbc datasource before testing
-> Must register the CUBRID Server host ('test-db-server').
-> https://www.cubrid.org/manual/en/11.4/api/odbc.html#id1
-> [Datasource list]
+> odbc must be registered with odbc datasource before testing<br/>
+> Must register the CUBRID Server host ('test-db-server').<br/>
+> https://www.cubrid.org/manual/en/11.4/api/odbc.html#id1<br/>
+> [Datasource list]<br/>
 >- CUBRID Driver
 >- CUBRID Driver Unicode
 >- cubrid_autocommit_on(must set autocommit to on)
